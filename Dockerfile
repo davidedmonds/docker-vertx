@@ -1,19 +1,22 @@
 #
 # Vert.x Dockerfile
 #
+# https://github.com/david.edmonds/docker-vertx
+#
+# forked from
 # https://github.com/muraken720/docker-vertx
 #
 
 # Pull base image.
 FROM dockerfile/java
 
-MAINTAINER Kenichiro Murata
+MAINTAINER David Edmonds
 
 # Install Vert.x
 RUN apt-get install wget --no-install-recommends
-RUN wget http://dl.bintray.com/vertx/downloads/vert.x-2.1RC3.tar.gz -P /tmp
-RUN tar zxf /tmp/vert.x-2.1RC3.tar.gz -C /usr/local/
-ENV PATH $PATH:/usr/local/vert.x-2.1RC3/bin
+RUN wget http://dl.bintray.com/vertx/downloads/vert.x-2.1.tar.gz -P /tmp
+RUN tar zxf /tmp/vert.x-2.1.tar.gz -C /usr/local/
+ENV PATH $PATH:/usr/local/vert.x-2.1/bin
 
 # Add app
 ADD app /root/app
